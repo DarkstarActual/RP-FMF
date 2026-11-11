@@ -1,4 +1,6 @@
 \documentclass[a4paper,12pt]{article}
+\usepackage{booktabs}
+\usepackage{multirow}
 \usepackage[slovene]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -66,7 +68,29 @@ Prirejeno po:
    stolpca ali vsa števila v katerikoli od glavnih diagonal.
 \end{definicija}
 
-Primer magičnega kvadrata reda 3 je prikazan v tabeli ??. % sklic: table:mag3
+Primer magičnega kvadrata reda 3 je prikazan v tabeli~\ref{table:mag3}.
+
+
+% Začetek magičnega kvadrata
+
+\begin{table}[!ht]
+    \centering
+    \caption{Magični kvadrat reda 3}
+    \label{table:mag3}
+
+    \begin{tabular}{|c|c|c|}
+        \hline
+        8 & 1 & 6 \\
+        \hline
+        3 & 5 & 7 \\
+        \hline
+        4 & 9 & 2 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+% Konec magičnega kvadrata
+
 
 % - napis nad tabelo: Magični kvadrat reda 3
 % - oznaka: table:mag3
@@ -161,33 +185,40 @@ in zato kvadrat ni normalen.
    \end{definicija}
 
 \begin{izrek}
-   Magična konstanta normalnega magičnega kvadrata reda !!
-   je enaka
-   \begin{equation}
-      % oznaka: eq:mc
-      % Okolje `equation` je že prikazni matematični način,
-      % zato tu izraz vpišite brez `\[` in `\]`.
-      !!
-   \end{equation}
+    \emph{Magična konstanta normalnega magičnega kvadrata reda \(n\)}
+    je enaka
+    \begin{equation}
+        M_2(n) = \frac{1}{2}n(n^2+1).
+        \label{eq:mc}
+    \end{equation}
 \end{izrek}
 
+
 \begin{proof}
-   V normalnem magičnem kvadratu reda \(n\) je vsota vseh nastopajočih
-   števil (glej ?? na strani ??) enaka
-   !!. Ker imamo
-   v kvadratu \(n\) vrstic z enako vsoto, je vsota števil v eni vrstici
-   enaka številu \(M_2(n)\). % sklica: eq:numbers, eq:numbers
+    V normalnem magičnem kvadratu reda \(n\) je vsota vseh
+    nastopajočih števil (glej (1) na strani 2) enaka
+    \(1+2+3+\cdots+n^2=\sum_{k=1}^{n^2}k
+    =\frac{1}{2}n^2(n^2+1)\).
+
+    Ker imamo v kvadratu \(n\) vrstic z enako vsoto, je
+    vsota števil v eni vrstici enaka številu \(M_2(n)\).
 \end{proof}
 
-Preprost račun pokaže, da je konstanti ?? analogna konstanta
-\(M_2(n;A,D)\) za magični kvadrat, v katerem so nameščena števila
-\(A\), \(A+D\), \(A+2D\), \ldots, \(A+(n^2-1)D\), enaka % sklic: eq:mc
-!!
+
+Preprost račun pokaže, da je konstanti (2) analogna
+konstanta \(M_2(n;A,D)\) za magični kvadrat, v katerem
+so nameščena števila
+\(A,\ A+D,\ A+2D,\ \ldots,\ A+(n^2-1)D\), enaka % sklic: eq:mc
+\begin{equation}
+    M_2(n;A,D)=\frac{1}{2}n(2A+D(n^2-1)).
+    \label{eq:mc}
+\end{equation}
 
 \begin{definicija}
-      Če vsako od števil v normalnem magičnem kvadratu reda \(n\) odštejemo
-      od števila !!, dobimo nov magični kvadrat, ki je prvotnemu
-      \emph{komplementaren}.
+    Če vsako od števil v normalnem magičnem kvadratu reda
+    \(n\) odštejemo od števila \(n^2+1\), dobimo nov
+    magični kvadrat, ki je prvotnemu
+    \emph{komplementaren}.
 \end{definicija}
 
 \begin{definicija}
@@ -195,25 +226,51 @@ Preprost račun pokaže, da je konstanti ?? analogna konstanta
       iz drugega s pomočjo zasukov oziroma zrcaljenj.
 \end{definicija}
 
-Števila različnih normalnih magičnih kvadratov se nahajajo v tabeli ??.
+Števila različnih normalnih magičnih kvadratov se nahajajo v tabeli 2.
 % sklic: table:stevila
 
 % - napis nad tabelo: Število različnih normalnih magičnih kvadratov
 % - oznaka: table:stevila
 % Začetek tabele
-      točna vrednost približek
-      red 1 2 3 4 5 6
-      % Decimalno vejico v matematičnem načinu zapišite kot {,},
-      % sicer jo LaTeX izpiše kot ločilo, s presledkom za njo.
-      število kvadratov 1 0 1 880 275305224 !!
+
+% Število različnih normalnih magičnih kvadratov
+
+\begin{table}[!ht]
+   \centering
+   \caption{Število različnih normalnih magičnih kvadratov}
+   \label{stevila}
+\begin{tabular}{lcccccc}\toprule    
+   &\multicolumn{5}{c}{točna vrednost}&približek\\\midrule
+      red&1&2&3&4&5&6\\
+      število kvadratov&1&0&1&880&275305224&\((1,7745 \pm 0,0016) \cdot 10^{19}\)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Vse normalne magične kvadrate reda 4 je oštevilčil
+Frénicle de Bessy leta 1693 (glej ???), in jih je moč
+najti v knjigi ???.
+
+Iz leta 1982. Število normalnih magičnih kvadratov
+reda 5 je izračunal R. Schroeppel leta 1973
+\cite{gardner}.
+
+Natančno število vseh različnih normalnih magičnih
+kvadratov reda 6 ni znano.
+
+Avtorja navedenega približka sta Pinn in Wieczerkowski
+(glej ???), ki sta uporabila računalniške metode
+za ocenjevanje števila različnih normalnih magičnih
+kvadratov.
+
 % Konec tabele
 
 Vse normalne magične kvadrate reda 4 je oštevilčil Frénicle de Bessy
 leta 1693, glej ???, in jih je moč najti v knjigi ???
 iz leta 1982. Število normalnih kvadratov reda 5 je izračunal
-R. Schroeppel leta 1973 (glej Gardner ???).
+R. Schroeppel leta 1973 \cite{gardner}.
 Natančno število vseh različnih normalnih magičnih kvadratov reda 6 ni znano.
-Avtorja navedenega približka sta Pinn in Wieczerkowski (glej ???), ki
+Avtorja navedenega približka sta Pinn in Wieczerkowski \cite{pinn}, ki
 sta za oceno uporabila simulacijo Monte Carlo in metode statistične mehanike.
  \cite{bessy, berlekamp, gardner, pinn}
 
